@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>洋蔥女裝 Bot — 官方網站</title>
+  <style>
+    body {
+      font-family: "Noto Sans TC", sans-serif;
+      background-color: #ffffff;
+      color: #222;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .hero-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #fff5f0 0%, #ffffff 100%);
+    }
+    .bot-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      box-shadow: 0 8px 24px rgba(255, 102, 0, 0.15);
+      margin-bottom: 24px;
+      object-fit: cover;
+    }
+    h1 {
+      color: #FF6600;
+      font-size: 2.5em;
+      margin: 0 0 12px 0;
+    }
+    .subtitle {
+      font-size: 1.2em;
+      color: #555;
+      max-width: 600px;
+      margin: 0 0 32px 0;
+    }
+    .btn-container {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 32px;
+      font-size: 1em;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background-color: #FF6600;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
+    }
+    .btn-primary:hover {
+      background-color: #e05500;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 102, 0, 0.4);
+    }
+    footer {
+      background-color: #f9f9f9;
+      border-top: 1px solid #eee;
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .footer-links {
+      margin-bottom: 12px;
+    }
+    .footer-links a {
+      color: #666;
+      text-decoration: none;
+      margin: 0 12px;
+      font-size: 0.95em;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: #FF6600;
+    }
+    .copyright {
+      font-size: 0.85em;
+      color: #999;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero-section">
+    <img src="images/bot/logo.png" alt="洋蔥女裝 Bot Logo" class="bot-logo">
+    <h1>🧅 洋蔥女裝 Bot</h1>
+    <p class="subtitle">為您的 Discord 伺服器帶來極致娛樂體驗！使用 <code>/洋蔥女裝</code> 開啟全新世界，查看排行榜與紀錄活動。</p>
+    
+    <div class="btn-container">
+      <a href="https://discord.com/oauth2/authorize?client_id=1519585230330138665&permissions=8&integration_type=0&scope=bot" target="_blank" class="btn btn-primary">邀請機器人</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/team">團隊成員</a>
+      <a href="/privacy">隱私權政策</a>
+      <a href="/terms">服務條款</a>
+    </div>
+    <p class="copyright">&copy; 2026 墨狐酒館決策團隊. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
