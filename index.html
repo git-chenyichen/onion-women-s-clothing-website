@@ -160,7 +160,7 @@
     }
 
     .features-section {
-      max-width: 500px;
+      max-width: 600px;
       width: 100%;
       margin: 0 auto 80px auto;
       padding: 0 24px;
@@ -173,41 +173,85 @@
       color: #0f172a;
       margin-bottom: 20px;
     }
-    .select-wrapper {
-      position: relative;
-      width: 100%;
-      margin-bottom: 16px;
-    }
-    .feature-select {
-      width: 100%;
-      padding: 14px 40px 14px 16px;
-      font-size: 1em;
-      font-weight: 700;
-      color: #1e293b;
+    
+    .marquee-container {
+      display: flex;
+      align-items: center;
       background-color: #ffffff;
       border: 1px solid #e2e8f0;
       border-radius: 12px;
-      cursor: pointer;
-      appearance: none;
-      -webkit-appearance: none;
+      padding: 0 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-      transition: all 0.2s;
+      overflow: hidden;
+      height: 50px;
+      position: relative;
     }
-    .feature-select:focus {
-      outline: none;
-      border-color: #FF6600;
-      box-shadow: 0 4px 12px rgba(255, 102, 0, 0.1);
+    .marquee-box {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+      white-space: nowrap;
+      height: 100%;
+      display: flex;
+      align-items: center;
     }
-    .select-wrapper::after {
-      content: "▼";
-      font-size: 0.8em;
+    .marquee-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marqueeAnimation 25s linear infinite;
+      color: #475569;
+      font-weight: 600;
+      font-size: 0.95em;
+    }
+    .marquee-text span {
+      margin-right: 50px;
+    }
+    .marquee-container:hover .marquee-text {
+      animation-play-state: paused;
+    }
+
+    @keyframes marqueeAnimation {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-100%, 0, 0); }
+    }
+
+    .select-trigger-btn {
+      background: none;
+      border: none;
       color: #64748b;
-      position: absolute;
-      right: 18px;
-      top: 50%;
-      transform: translateY(-50%);
-      pointer-events: none;
+      font-size: 0.8em;
+      cursor: pointer;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-left: 1px solid #e2e8f0;
+      height: 100%;
+      transition: color 0.2s;
     }
+    .select-trigger-btn:hover {
+      color: #FF6600;
+    }
+
+    .hidden-select-wrapper {
+      position: absolute;
+      right: 12px;
+      opacity: 0;
+      width: 40px;
+      height: 40px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .feature-select {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
     .feature-display-card {
       background-color: #ffffff;
       border: 1px solid #e2e8f0;
@@ -215,11 +259,12 @@
       padding: 24px;
       text-align: center;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-      min-height: 120px;
+      min-height: 100px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      margin-top: 16px;
     }
     .display-icon {
       font-size: 2.2em;
@@ -229,7 +274,7 @@
       font-size: 0.98em;
       color: #475569;
       margin: 0;
-      max-width: 400px;
+      max-width: 450px;
     }
 
     footer {
@@ -338,22 +383,40 @@
 
   <div class="features-section">
     <h2 class="features-title">✨ 核心系統與功能</h2>
-    <div class="select-wrapper">
-      <select id="featureSelect" class="feature-select" onchange="updateFeatureDisplay()">
-        <option value="onion">👗 洋蔥女裝 / 洋蔥語錄</option>
-        <option value="support">🛠️ 支援系統</option>
-        <option value="game">🔢 文字 / 數字接龍系統</option>
-        <option value="pin">📌 置底系統</option>
-        <option value="cross">🌐 跨群系統</option>
-        <option value="backup">💾 備份訊息</option>
-        <option value="mail">✉️ 一次性郵件</option>
-        <option value="weather">🌤️ 查詢天氣</option>
-      </select>
+    
+    <div class="marquee-container">
+      <div class="marquee-box">
+        <div class="marquee-text">
+          <span>👗 洋蔥女裝 / 洋蔥語錄</span>
+          <span>🛠️ 支援系統</span>
+          <span>🔢 文字 / 數字接龍系統</span>
+          <span>📌 置底系統</span>
+          <span>🌐 跨群系統</span>
+          <span>💾 備份訊息</span>
+          <span>✉️ 一次性郵件</span>
+          <span>🌤️ 查詢天氣</span>
+        </div>
+      </div>
+      
+      <div class="hidden-select-wrapper">
+        <select id="featureSelect" class="feature-select" onchange="updateFeatureDisplay()">
+          <option value="" disabled selected>選擇功能...</option>
+          <option value="onion">👗 洋蔥女裝 / 洋蔥語錄</option>
+          <option value="support">🛠️ 支援系統</option>
+          <option value="game">🔢 文字 / 數字接龍系統</option>
+          <option value="pin">📌 置底系統</option>
+          <option value="cross">🌐 跨群系統</option>
+          <option value="backup">💾 備份訊息</option>
+          <option value="mail">✉️ 一次性郵件</option>
+          <option value="weather">🌤️ 查詢天氣</option>
+        </select>
+      </div>
+      <button class="select-trigger-btn">▼</button>
     </div>
     
     <div class="feature-display-card">
-      <div id="displayIcon" class="display-icon">👗</div>
-      <p id="displayDesc" class="display-desc">一鍵解鎖經典女裝圖庫與精選語錄，為伺服器增添源源不絕的歡樂與迷因梗。</p>
+      <div id="displayIcon" class="display-icon">💡</div>
+      <p id="displayDesc" class="display-desc">點擊右側的下箭頭，可以單獨查看各個核心功能的詳細介紹資訊。</p>
     </div>
   </div>
 
