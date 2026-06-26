@@ -88,13 +88,12 @@
     }
 
     .hero-section {
-      flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 140px 24px 60px 24px;
+      padding: 140px 24px 40px 24px;
       box-sizing: border-box;
     }
     .bot-logo {
@@ -161,52 +160,76 @@
     }
 
     .features-section {
-      max-width: 1000px;
+      max-width: 500px;
+      width: 100%;
       margin: 0 auto 80px auto;
       padding: 0 24px;
       box-sizing: border-box;
     }
     .features-title {
       text-align: center;
-      font-size: 1.8em;
+      font-size: 1.5em;
       font-weight: 800;
       color: #0f172a;
-      margin-bottom: 32px;
+      margin-bottom: 20px;
     }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+    .select-wrapper {
+      position: relative;
+      width: 100%;
+      margin-bottom: 16px;
     }
-    .feature-card {
+    .feature-select {
+      width: 100%;
+      padding: 14px 40px 14px 16px;
+      font-size: 1em;
+      font-weight: 700;
+      color: #1e293b;
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s;
+    }
+    .feature-select:focus {
+      outline: none;
+      border-color: #FF6600;
+      box-shadow: 0 4px 12px rgba(255, 102, 0, 0.1);
+    }
+    .select-wrapper::after {
+      content: "▼";
+      font-size: 0.8em;
+      color: #64748b;
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .feature-display-card {
       background-color: #ffffff;
       border: 1px solid #e2e8f0;
       border-radius: 16px;
       padding: 24px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
-    .feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(255, 102, 0, 0.06);
-      border-color: #ff660040;
+    .display-icon {
+      font-size: 2.2em;
+      margin-bottom: 10px;
     }
-    .feature-icon {
-      font-size: 2em;
-      margin-bottom: 12px;
-      display: inline-block;
-    }
-    .feature-name {
-      font-size: 1.2em;
-      font-weight: 700;
-      color: #0f172a;
-      margin: 0 0 8px 0;
-    }
-    .feature-desc {
-      font-size: 0.92em;
-      color: #64748b;
+    .display-desc {
+      font-size: 0.98em;
+      color: #475569;
       margin: 0;
-      line-height: 1.5;
+      max-width: 400px;
     }
 
     footer {
@@ -220,6 +243,14 @@
       font-size: 0.85em;
       color: #94a3b8;
       margin: 0;
+    }
+    .copyright a {
+      color: #ff6600;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .copyright a:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 768px) {
@@ -271,10 +302,7 @@
       h1 { font-size: 2.1em; }
       .subtitle { font-size: 1.05em; }
       .btn { width: 100%; max-width: 280px; box-sizing: border-box; }
-      .features-section { padding: 0 16px; }
-      .features-title { font-size: 1.5em; margin-bottom: 24px; }
-      .features-grid { grid-template-columns: 1fr; gap: 16px; }
-      .feature-card { padding: 20px; }
+      .features-section { padding: 0 16px; margin-bottom: 60px; }
     }
   </style>
 </head>
@@ -310,62 +338,53 @@
 
   <div class="features-section">
     <h2 class="features-title">✨ 核心系統與功能</h2>
-    <div class="features-grid">
-      
-      <div class="feature-card">
-        <span class="feature-icon">👗</span>
-        <h3 class="feature-name">洋蔥女裝 / 洋蔥語錄</h3>
-        <p class="feature-desc">一鍵解鎖經典女裝圖庫與精選語錄，為伺服器增添源源不絕的歡樂與迷因梗。</p>
-      </div>
-
-      <div class="feature-card">
-        <span class="feature-icon">🛠️</span>
-        <h3 class="feature-name">支援系統</h3>
-        <p class="feature-desc">提供完善的社群問題回報與客服協助機制，讓成員的疑問能在第一時間得到反饋。</p>
-      </div>
-
-      <div class="feature-card">
-        <span class="feature-icon">🔢</span>
-        <h3 class="feature-name">文字 / 數字接龍系統</h3>
-        <p class="feature-desc">內建自動化趣味接龍遊戲，智慧偵測排版與防作弊，輕鬆炒熱聊天室氣氛。</p>
-      </div>
-
-      <div class="feature-card">
-        <span class="feature-icon">📌</span>
-        <h3 class="feature-name">置底系統</h3>
-        <p class="feature-desc">重要公告與聊天室核心資訊完美置底，確保新進成員絕不漏掉任何關鍵消息。</p>
-      </div>
-
-      <div class="feature-card">
-        <span class="feature-icon">🌐</span>
-        <h3 class="feature-name">跨群系統</h3>
-        <p class="feature-desc">打破伺服器藩籬！建立安全的跨群連結通道，讓不同社群的朋友也能即時互通有無。</p>
-      </div>
-
-      <div class="feature-card">
-        <span class="feature-icon">💾</span>
-        <h3 class="feature-name">備份訊息</h3>
-        <p class="feature-desc">強大的訊息備份紀錄功能，防止重要對話遭到誤刪，守護群組珍貴的歷史回憶。</p>
-      </div>
-
-      <div class="feature-card">
-        <span class="feature-icon">✉️</span>
-        <h3 class="feature-name">一次性郵件</h3>
-        <p class="feature-desc">提供快速生成臨時信箱的功能，保護您的個人隱私安全，遠離垃圾郵件騷擾。</p>
-      </div>
-
-      <div class="feature-card">
-        <span class="feature-icon">🌤️</span>
-        <h3 class="feature-name">查詢天氣</h3>
-        <p class="feature-desc">即時抓取各地最新氣象預報與即時天氣數據，出門前在群裡吼一聲就知道。</p>
-      </div>
-
+    <div class="select-wrapper">
+      <select id="featureSelect" class="feature-select" onchange="updateFeatureDisplay()">
+        <option value="onion">👗 洋蔥女裝 / 洋蔥語錄</option>
+        <option value="support">🛠️ 支援系統</option>
+        <option value="game">🔢 文字 / 數字接龍系統</option>
+        <option value="pin">📌 置底系統</option>
+        <option value="cross">🌐 跨群系統</option>
+        <option value="backup">💾 備份訊息</option>
+        <option value="mail">✉️ 一次性郵件</option>
+        <option value="weather">🌤️ 查詢天氣</option>
+      </select>
+    </div>
+    
+    <div class="feature-display-card">
+      <div id="displayIcon" class="display-icon">👗</div>
+      <p id="displayDesc" class="display-desc">一鍵解鎖經典女裝圖庫與精選語錄，為伺服器增添源源不絕的歡樂與迷因梗。</p>
     </div>
   </div>
 
   <footer>
-    <p class="copyright">&copy; 2026 墨狐酒館決策團隊. All rights reserved.</p>
+    <p class="copyright">&copy; 2026 <a href="https://mofox.xyz" target="_blank">墨狐酒館</a>決策團隊. All rights reserved.</p>
   </footer>
+
+  <script>
+    const featureData = {
+      onion: { icon: "👗", desc: "一鍵解鎖經典女裝圖庫與精選語錄，為伺服器增添源源不絕的歡樂與迷因梗。" },
+      support: { icon: "🛠️", desc: "提供完善的社群問題回報與客服協助機制，讓成員的疑問能在第一時間得到反饋。" },
+      game: { icon: "🔢", desc: "內建自動化趣味接龍遊戲，智慧偵測排版與防作弊，輕鬆炒熱聊天室氣氛。" },
+      pin: { icon: "📌", desc: "重要公告與聊天室核心資訊完美置底，確保新進成員絕不漏掉任何關鍵消息。" },
+      cross: { icon: "🌐", desc: "打破伺服器藩籬！建立安全的跨群連結通道，讓不同社群的朋友也能即時互通有無。" },
+      backup: { icon: "💾", desc: "強大的訊息備份紀錄功能，防止重要對話遭到誤刪，守護群組珍貴的歷史回憶。" },
+      mail: { icon: "✉️", desc: "提供快速生成臨時信箱的功能，保護您的個人隱私安全，遠離垃圾郵件騷擾。" },
+      weather: { icon: "🌤️", desc: "即時抓取各地最新氣象預報與即時天氣數據，出門前在群裡吼一聲就知道。" }
+    };
+
+    function updateFeatureDisplay() {
+      const select = document.getElementById('featureSelect');
+      const selectedValue = select.value;
+      const displayIcon = document.getElementById('displayIcon');
+      const displayDesc = document.getElementById('displayDesc');
+      
+      if (featureData[selectedValue]) {
+        displayIcon.textContent = featureData[selectedValue].icon;
+        displayDesc.textContent = featureData[selectedValue].desc;
+      }
+    }
+  </script>
 
 </body>
 </html>
