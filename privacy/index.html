@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>隱私權政策 — 洋蔥女裝 Bot</title>
+  <style>
+    body {
+      font-family: "SF Pro Display", "-apple-system", "Noto Sans TC", sans-serif;
+      background-color: #fafafa;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 64px;
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 24px;
+      box-sizing: border-box;
+      z-index: 1000;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      color: #0f172a;
+      text-decoration: none;
+      font-size: 1.15em;
+    }
+    .nav-brand img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .nav-toggle {
+      display: none;
+    }
+    .nav-toggle-label {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 10px;
+    }
+    .nav-toggle-label span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: #1e293b;
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .nav-links {
+      display: flex;
+      gap: 8px;
+    }
+    .nav-links a {
+      color: #475569;
+      text-decoration: none;
+      font-size: 0.95em;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: #FF6600;
+      background-color: #fff5f0;
+    }
+
+    .container {
+      flex: 1;
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 120px 24px 60px 24px;
+      box-sizing: border-box;
+    }
+    
+    .legal-box {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.01);
+    }
+    h1 {
+      color: #0f172a;
+      font-size: 2em;
+      font-weight: 800;
+      margin: 0 0 10px 0;
+      letter-spacing: -0.5px;
+    }
+    .last-updated {
+      font-size: 0.88em;
+      color: #94a3b8;
+      margin-bottom: 32px;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 16px;
+    }
+    h2 {
+      color: #FF6600;
+      font-size: 1.3em;
+      font-weight: 700;
+      margin: 28px 0 12px 0;
+    }
+    p, ul {
+      color: #475569;
+      font-size: 0.98em;
+      margin: 0 0 16px 0;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+
+    footer {
+      background-color: #ffffff;
+      border-top: 1px solid #e2e8f0;
+      padding: 28px 20px;
+      text-align: center;
+    }
+    .copyright {
+      font-size: 0.85em;
+      color: #94a3b8;
+      margin: 0;
+    }
+    .copyright a {
+      color: #ff6600;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .copyright a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle-label { display: flex; }
+      .nav-links {
+        position: absolute;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.98);
+        border-bottom: 1px solid #e2e8f0;
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.25s ease;
+      }
+      .nav-links a {
+        width: 100%;
+        border-radius: 0;
+        padding: 14px 24px;
+        box-sizing: border-box;
+      }
+      .nav-toggle:checked ~ .nav-links {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .nav-toggle:checked ~ .nav-toggle-label span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .nav-toggle:checked ~ .nav-toggle-label span:nth-child(2) { opacity: 0; }
+      .nav-toggle:checked ~ .nav-toggle-label span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .legal-box { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="/" class="nav-brand">
+      <img src="images/bot/image-onion.jpg" alt="Logo">
+      <span>洋蔥女裝 Bot</span>
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <div class="nav-links">
+      <a href="/team">團隊成員</a>
+      <a href="/privacy" class="active">隱私權政策</a>
+      <a href="/terms">服務條款</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="legal-box">
+      <h1>🔒 隱私權政策</h1>
+      <div class="last-updated">最後更新日期：2026 年 6 月</div>
+      
+      <p>歡迎使用洋蔥女裝 Bot（以下簡稱「本機器人」）。我們非常重視您的隱私，本隱私權政策旨在說明我們如何收集、使用與保護您在 Discord 伺服器中使用本機器人時所產生的相關資料。</p>
+      
+      <h2>1. 資料收集範圍</h2>
+      <ul>
+        <li><strong>基本終端資料：</strong> 為了維持機器人正常運作與權限識別，我們會讀取您的 Discord 使用者 ID、伺服器 ID、頻道 ID 以及角色權限階級。</li>
+        <li><strong>訊息內容記錄：</strong> 當您啟用「訊息備份系統」或進行「接龍遊戲」時，本機器人會在運作必要範圍內暫存或記錄該頻道的對話文字。</li>
+        <li><strong>指令操作：</strong> 我們會記錄斜線指令（Slash Commands）的觸發頻率與使用狀態，用以優化系統回應速度。</li>
+      </ul>
+      
+      <h2>2. 資料使用目的與方式</h2>
+      <p>收集的資料僅用於提供本機器人的核心功能（如跨群通訊、文字備份與接龍防作弊判斷）。我們承諾絕不會將您的資料出售、出租或洩漏給任何未授權的第三方組織。</p>
+      
+      <h2>3. 跨群系統隱私規範</h2>
+      <p>使用跨群系統時，您發送至該指定頻道的訊息、暱稱與頭像將會同步傳輸至其他已連結的 Discord 伺服器。請勿在跨群頻道中發送任何涉及個人隱私、敏感個資或機密之資訊。</p>
+      
+      <h2>4. 資料保留與刪除</h2>
+      <p>訊息備份與臨時快取資料均設有自動清除機制。若伺服器管理員將本機器人踢出伺服器，該伺服器儲存於本機器人資料庫中的非必要快取設定將於定期維護時自動全面銷毀。</p>
+    </div>
+  </div>
+
+  <footer>
+    <p class="copyright">&copy; 2026 <a href="https://mofox.xyz" target="_blank">墨狐酒館</a>決策團隊. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
